@@ -1,0 +1,50 @@
+/******************************************************************************
+ ** Multithreaded Bank System									                           **
+ ** with Multiprocessing server and Shared memory           					   **
+ ** By: Phanindra Cherukuri <phani.cheruk@gmail.com                          **
+ ******************************************************************************/
+
+Test Plan (client.exe: ./client <hostname>, server.exe: ./server)
+------------------------------------
+
+### Test Case 1
+
+#### client.exe Input
+
+"open phanicherukuri", then "start phanicherukuri", then open another client and "start phanicherukuri"
+
+#### Output
+
+Waiting to lock account and start customer session for 'phanicherukuri', please be patient...
+
+### Test Case 2
+
+#### Input
+
+"open phanicherukuri", then "start phanicherukuri", then "credit 1000" then "debit 2000"
+
+#### Output
+
+Invalid debit request - your balance is too low, try a different amount.
+
+### Test Case 3
+
+#### Input
+
+"open phanicherukuri", then "start phanicherukuri", then "credit 2000" then "debit 1000"
+
+#### Output
+
+Amount successfully withdrawn.
+
+### Test Case 4
+
+#### Input
+
+"open phanicherukuri", then "start phanicherukuri", then "credit 150", then "balance"
+
+#### Output
+
+client.exe: Your current balance is  150.00
+
+server.exe: Attempting to retrieve account balance...
